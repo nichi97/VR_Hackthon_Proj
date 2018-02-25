@@ -27,11 +27,11 @@ public class RaycastObject : MonoBehaviour {
     [SerializeField]
     Canvas messageCanvas;
 
-    CanvasGroup cg;
-    bool messageOn;
+    protected CanvasGroup cg;
+    protected bool messageOn;
     public bool haveSeenMsg;
 
-    void Start()
+    protected void Start()
     {
         Debug.LogFormat("Hello {0}", this.name);
         cg = messageCanvas.GetComponent<CanvasGroup>();
@@ -51,7 +51,7 @@ public class RaycastObject : MonoBehaviour {
         messageOn = false;
     }
 
-    private void Update()
+    protected void Update()
     {
         if (messageOn && cg.alpha < 1)
             cg.alpha += Time.deltaTime * 1.5f;
