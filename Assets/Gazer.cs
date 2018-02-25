@@ -1,25 +1,87 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
-public class Gazer : RaycastObject {
+public class Gazer : MonoBehaviour {
 
     private RaycastObject lastRaycastObject;
+    private RaycastObject lastRaycastObjectForFinger;
     float hitTimeLength;
+    bool isGazing;
+    bool fingerMode;
+    string inputPw;
+    int inputCount;
+    bool locked;
+    GameObject cursorInstance;
 
     // Use this for initialization
     void Start()
     {
         hitTimeLength = 0;
+        isGazing = true;
+        fingerMode = false; //finger raycasting mode
+        inputPw = "";
+        inputCount = 0;
+        locked = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Ray myRay = new Ray(this.transform.position, this.transform.forward);
-        Debug.DrawRay(myRay.origin, myRay.direction * 1000.0f);
+
+
+        //when solving the keypad
+        if (locked && !isGazing && lastRaycastObject is KeypadObject)
+        {
+            if (!fingerMode)
+            {
+                fingerMode = true;
+                ((KeypadObject)lastRaycastObject).setPwMode(true);
+                //instantiate cursor for finger pointer
+                cursorInstance = Instantiate(Resources.Load("cursor")) as GameObject;
+                cursorInstance.SetActive(false);//cursorInstance.GetComponent<Renderer>().enabled = false;
+            }
+            if (inputPw.CompareTo("662") == 0)
+            {
+                locked = false;
+            }
+            else if (inputPw.Length > 2)
+                inputPw = "";
+        }
+        
+        if (!locked)
+        {
+            isGazing = true;
+            fingerMode = false;
+            inputPw = "";
+            inputCount = 0;
+        }
+
+        //when the gazed object is interactive raycast object
+        if (!isGazing && lastRaycastObject is InteractiveRaycastObject)
+        {
+            //Debug.LogFormat("hi");
+            //lastRaycastObject.TurnOffMessage();
+
+            //reset back to the gazing mode with no interaction
+            if (!((InteractiveRaycastObject)lastRaycastObject).getInInteraction())
+            {
+                isGazing = true;
+                fingerMode = false;
+                inputPw = "";
+                inputCount = 0;
+            }
+            else
+            {
+                if (fingerMode && !OVRInput.Get(OVRInput.NearTouch.SecondaryIndexTrigger))
+                    fingerRaycast();
+                return;
+            }
+        }
+        //Debug.LogFormat("checkpoint");
+        //Ray myRay = new Ray(this.transform.position, this.transform.forward);
+        Debug.DrawRay(transform.position, transform.forward * 1000.0f);
         RaycastHit hitObject;
-        if (Physics.Raycast(myRay, out hitObject, Mathf.Infinity))
+        if (Physics.SphereCast(transform.position, 30f, transform.forward, out hitObject, Mathf.Infinity))
         {
             RaycastObject rayCastHitObject = hitObject.collider.GetComponent<RaycastObject>();
             if (rayCastHitObject != null)
@@ -31,9 +93,26 @@ public class Gazer : RaycastObject {
                     rayCastHitObject.OnRaycastEnter(hitObject);
                     lastRaycastObject = rayCastHitObject;
                     hitTimeLength = 0;
+                    rayCastHitObject.TurnOffMessage();
                 }
                 else
+                {
                     rayCastHitObject.OnRayCast(hitObject);
+                    hitTimeLength += Time.deltaTime;
+
+                    //show internal mind
+                    if ( (!rayCastHitObject.haveSeenMsg && hitTimeLength >= 3)
+                            || (rayCastHitObject.haveSeenMsg && hitTimeLength >= 1) )
+                    {
+                        if (rayCastHitObject is InteractiveRaycastObject
+                            && ((InteractiveRaycastObject)rayCastHitObject).getInInteraction()) 
+                        {
+                            isGazing = false;      
+                        }
+                        else
+                            rayCastHitObject.TurnOnMessage();
+                    }
+                }
             }
 
             else if (lastRaycastObject != null)
@@ -49,26 +128,124 @@ public class Gazer : RaycastObject {
             lastRaycastObject = null;
             hitTimeLength = 0;
         }
+
     }
 
-    private void FixedUpdate()
+
+    private void fingerRaycast()
     {
-        //show the internal mind
-        Ray myRay = new Ray(this.transform.position, this.transform.forward);
-        Debug.DrawRay(myRay.origin, myRay.direction * 1000.0f);
+        Debug.LogFormat("finger time");
+
+        OvrAvatar avatar = GameObject.Find("LocalAvatar").GetComponent<OvrAvatar>();//  this.gameObjectGetComponent<OvrAvatar>();
+        //OvrAvatar avatar = FindObjectOfType(OvrAvatar);
+        Debug.LogFormat("avatar is {0}", avatar.name);
+        Ray myRay = new Ray(avatar.GetHandTransform(OvrAvatar.HandType.Right, OvrAvatar.HandJoint.IndexTip).transform.position, this.transform.forward);
+        //Debug.DrawRay(myRay.origin, myRay.direction * 1000.0f);
+        //Ray myRay = new Ray(this.transform.position, this.transform.forward);
         RaycastHit hitObject;
         if (Physics.Raycast(myRay, out hitObject, Mathf.Infinity))
-        { 
-            RaycastObject rayCastHitObject = hitObject.collider.GetComponent<RaycastObject>();
-            if (rayCastHitObject != null && rayCastHitObject == lastRaycastObject)
+        {
+            //cursor
+            cursorInstance.SetActive(true);//cursorInstance.GetComponent<Renderer>().enabled = true;
+            cursorInstance.transform.position = hitObject.point;
+            cursorInstance.transform.rotation = hitObject.transform.rotation;//.FromToRotation(Vector3.up, hitObject.normal);
+
+            NumberKey rayCastHitObject = hitObject.collider.GetComponent<NumberKey>();
+            if (rayCastHitObject != null
+                && OVRInput.Get(OVRInput.Button.One)
+                || OVRInput.Get(OVRInput.Button.Two))
             {
-                hitTimeLength += Time.deltaTime;
-                Debug.LogFormat("Staying at {0} for {1} sec", hitObject.collider.gameObject.name, hitTimeLength);
+                switch (rayCastHitObject.getName())
+                {
+                    case "Button 1":
+                        inputPw += "1";
+                        break;
+                    case "Button 2":
+                        inputPw += "2";
+                        break;
+                    case "Button 3":
+                        inputPw += "3";
+                        break;
+                    case "Button 4":
+                        inputPw += "4";
+                        break;
+                    case "Button 5":
+                        inputPw += "5";
+                        break;
+                    case "Button 6":
+                        inputPw += "6";
+                        break;
+                    case "Button 7":
+                        inputPw += "7";
+                        break;
+                    case "Button 8":
+                        inputPw += "8";
+                        break;
+                    case "Button 9":
+                        inputPw += "9";
+                        break;
+                    case "Button 0":
+                        inputPw += "0";
+                        break;
+                    case "Button Red":
+                        inputPw = "";
+                        break;
+                }
             }
         }
-        if (hitTimeLength >= 5)
+        else
         {
-            Debug.LogFormat("Hello");
+            cursorInstance.SetActive(false);//cursorInstance.GetComponent<Renderer>().enabled = false;
+
         }
+
+
+
+            /*
+            if (rayCastHitObject != null)
+            {
+                if (rayCastHitObject != lastRaycastObjectForFinger)
+                {
+                    if (lastRaycastObjectForFinger != null)
+                        lastRaycastObjectForFinger.OnRaycastExit();
+                    rayCastHitObject.OnRaycastEnter(hitObject);
+                    lastRaycastObjectForFinger = rayCastHitObject;
+                    hitTimeLength = 0;
+                    rayCastHitObject.TurnOffMessage();
+                }
+                else
+                {
+                    rayCastHitObject.OnRayCast(hitObject);
+                    hitTimeLength += Time.deltaTime;
+
+                    //show internal mind
+                    if ((!rayCastHitObject.haveSeenMsg && hitTimeLength >= 3)
+                            || (rayCastHitObject.haveSeenMsg && hitTimeLength >= 1))
+                    {
+                        if (rayCastHitObject is InteractiveRaycastObject
+                            && ((InteractiveRaycastObject)rayCastHitObject).getInInteraction())
+                        {
+                            isGazing = false;
+                        }
+                        else
+                            rayCastHitObject.TurnOnMessage();
+                    }
+                }
+            }
+
+            else if (lastRaycastObjectForFinger != null)
+            {
+                lastRaycastObjectForFinger.OnRaycastExit();
+                lastRaycastObjectForFinger = null;
+                hitTimeLength = 0;
+            }
+        }
+        else if (lastRaycastObjectForFinger != null)
+        {
+            lastRaycastObjectForFinger.OnRaycastExit();
+            lastRaycastObjectForFinger = null;
+            hitTimeLength = 0;
+        }*/
     }
+
 }
