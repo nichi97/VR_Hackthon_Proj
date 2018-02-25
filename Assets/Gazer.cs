@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gazer : RaycastObject {
+public class Gazer : MonoBehaviour {
 
     private RaycastObject lastRaycastObject;
     float hitTimeLength;
@@ -16,10 +16,10 @@ public class Gazer : RaycastObject {
     // Update is called once per frame
     void Update()
     {
-        Ray myRay = new Ray(this.transform.position, this.transform.forward);
-        Debug.DrawRay(myRay.origin, myRay.direction * 1000.0f);
+        //Ray myRay = new Ray(this.transform.position, this.transform.forward);
+        //Debug.DrawRay(myRay.origin, myRay.direction * 1000.0f);
         RaycastHit hitObject;
-        if (Physics.Raycast(myRay, out hitObject, Mathf.Infinity))
+        if (Physics.SphereCast(transform.position, 10f, transform.forward, out hitObject, Mathf.Infinity))
         {
             RaycastObject rayCastHitObject = hitObject.collider.GetComponent<RaycastObject>();
             if (rayCastHitObject != null)
@@ -31,9 +31,26 @@ public class Gazer : RaycastObject {
                     rayCastHitObject.OnRaycastEnter(hitObject);
                     lastRaycastObject = rayCastHitObject;
                     hitTimeLength = 0;
+                    rayCastHitObject.TurnOffMessage();
                 }
                 else
+                {
                     rayCastHitObject.OnRayCast(hitObject);
+                    hitTimeLength += Time.deltaTime;
+                    Debug.LogFormat("Staying at {0} for {1} sec", hitObject.collider.gameObject.name, hitTimeLength);
+
+                    //show internal mind
+                    if (!rayCastHitObject.haveSeenMsg && hitTimeLength >= 4)
+                    {
+                        Debug.LogFormat("Turn on HintBox");
+                        rayCastHitObject.TurnOnMessage();
+                    }
+                    else if (rayCastHitObject.haveSeenMsg && hitTimeLength >= 1.5)
+                    {
+                        Debug.LogFormat("Turn on HintBox");
+                        rayCastHitObject.TurnOnMessage();
+                    }
+                }
             }
 
             else if (lastRaycastObject != null)
@@ -49,26 +66,9 @@ public class Gazer : RaycastObject {
             lastRaycastObject = null;
             hitTimeLength = 0;
         }
-    }
 
-    private void FixedUpdate()
-    {
-        //show the internal mind
-        Ray myRay = new Ray(this.transform.position, this.transform.forward);
-        Debug.DrawRay(myRay.origin, myRay.direction * 1000.0f);
-        RaycastHit hitObject;
-        if (Physics.Raycast(myRay, out hitObject, Mathf.Infinity))
-        { 
-            RaycastObject rayCastHitObject = hitObject.collider.GetComponent<RaycastObject>();
-            if (rayCastHitObject != null && rayCastHitObject == lastRaycastObject)
-            {
-                hitTimeLength += Time.deltaTime;
-                Debug.LogFormat("Staying at {0} for {1} sec", hitObject.collider.gameObject.name, hitTimeLength);
-            }
-        }
-        if (hitTimeLength >= 5)
-        {
-            Debug.LogFormat("Hello");
-        }
     }
+    
+
+
 }
