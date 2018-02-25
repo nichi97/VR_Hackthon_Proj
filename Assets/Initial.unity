@@ -1081,6 +1081,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e451cd9885f23419a1db7f930162bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageCanvas: {fileID: 0}
+  haveSeenMsg: 0
 --- !u!23 &276894296
 MeshRenderer:
   m_ObjectHideFlags: 0
