@@ -2,6 +2,7 @@ fileFormatVersion: 2
 guid: a37fa39727487449992acd8f0652bd51
 timeCreated: 1504763541
 PluginImporter:
+<<<<<<< HEAD
   serializedVersion: 1
   iconMap: {}
   executionOrder: {}
@@ -10,6 +11,32 @@ PluginImporter:
     Any:
       enabled: 1
       settings: {}
+=======
+  externalObjects: {}
+  serializedVersion: 2
+  iconMap: {}
+  executionOrder: {}
+  isPreloaded: 0
+  isOverridable: 0
+  platformData:
+  - first:
+      Android: Android
+    second:
+      enabled: 1
+      settings:
+        CPU: ARMv7
+  - first:
+      Any: 
+    second:
+      enabled: 0
+      settings: {}
+  - first:
+      Editor: Editor
+    second:
+      enabled: 0
+      settings:
+        DefaultValueInitialized: true
+>>>>>>> 462ae08fe3dcd4fa9c703ffedb77e636a68d7ecb
   userData: 
   assetBundleName: 
   assetBundleVariant: 

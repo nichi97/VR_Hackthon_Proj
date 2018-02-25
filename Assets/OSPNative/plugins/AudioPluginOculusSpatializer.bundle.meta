@@ -4,12 +4,46 @@ folderAsset: yes
 timeCreated: 1444263910
 licenseType: Store
 PluginImporter:
+<<<<<<< HEAD
   serializedVersion: 1
   iconMap: {}
   executionOrder: {}
   isPreloaded: 0
   platformData:
     Any:
+=======
+  externalObjects: {}
+  serializedVersion: 2
+  iconMap: {}
+  executionOrder: {}
+  isPreloaded: 1
+  isOverridable: 0
+  platformData:
+  - first:
+      '': OSXIntel
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      '': OSXIntel64
+    second:
+      enabled: 1
+      settings: {}
+  - first:
+      Any: 
+    second:
+      enabled: 0
+      settings: {}
+  - first:
+      Editor: Editor
+    second:
+      enabled: 1
+      settings:
+        DefaultValueInitialized: true
+  - first:
+      Standalone: OSXUniversal
+    second:
+>>>>>>> 462ae08fe3dcd4fa9c703ffedb77e636a68d7ecb
       enabled: 1
       settings: {}
   userData: 

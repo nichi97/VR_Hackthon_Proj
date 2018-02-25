@@ -193,6 +193,12 @@
     <Reference Include="UnityEngine.WindModule">
       <HintPath>Library\UnityAssemblies\UnityEngine.WindModule.dll</HintPath>
     </Reference>
+    <Reference Include="Vuforia.UnityExtensions.Editor">
+      <HintPath>Library\UnityAssemblies\Vuforia.UnityExtensions.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Vuforia.UnityExtensions">
+      <HintPath>Library\UnityAssemblies\Vuforia.UnityExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -249,12 +255,6 @@
     </Reference>
     <Reference Include="UnityEditor.VR">
       <HintPath>Library\UnityAssemblies\UnityEditor.VR.dll</HintPath>
-    </Reference>
-    <Reference Include="Vuforia.UnityExtensions.Editor">
-      <HintPath>Library\UnityAssemblies\Vuforia.UnityExtensions.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Vuforia.UnityExtensions">
-      <HintPath>Library\UnityAssemblies\Vuforia.UnityExtensions.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Graphs">
       <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
@@ -335,8 +335,11 @@
     <Compile Include="Assets\Clock\Prefabs\RaycastObject.cs" />
     <Compile Include="Assets\Clock\Scripts\Clock.cs" />
     <Compile Include="Assets\Gazer.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\InteractiveRaycastObject.cs" />
     <Compile Include="Assets\Keypad\Script\Playsound.cs" />
+=======
+>>>>>>> 462ae08fe3dcd4fa9c703ffedb77e636a68d7ecb
     <Compile Include="Assets\OculusPlatform\Scripts\AchievementType.cs" />
     <Compile Include="Assets\OculusPlatform\Scripts\AndroidPlatform.cs" />
     <Compile Include="Assets\OculusPlatform\Scripts\BufferedAudioStream.cs" />
@@ -554,6 +557,8 @@
     <None Include="Assets\OvrAvatar\THIRD_PARTY_NOTICES.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
+    <None Include="Assets\info_morgueroom.txt" />
+    <None Include="Assets\kitchen props\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
