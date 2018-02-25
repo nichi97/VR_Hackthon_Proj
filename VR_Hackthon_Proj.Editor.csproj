@@ -193,15 +193,6 @@
     <Reference Include="UnityEngine.WindModule">
       <HintPath>Library\UnityAssemblies\UnityEngine.WindModule.dll</HintPath>
     </Reference>
-<<<<<<< HEAD
-=======
-    <Reference Include="Vuforia.UnityExtensions.Editor">
-      <HintPath>Library\UnityAssemblies\Vuforia.UnityExtensions.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Vuforia.UnityExtensions">
-      <HintPath>Library\UnityAssemblies\Vuforia.UnityExtensions.dll</HintPath>
-    </Reference>
->>>>>>> 462ae08fe3dcd4fa9c703ffedb77e636a68d7ecb
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -259,15 +250,12 @@
     <Reference Include="UnityEditor.VR">
       <HintPath>Library\UnityAssemblies\UnityEditor.VR.dll</HintPath>
     </Reference>
-<<<<<<< HEAD
     <Reference Include="Vuforia.UnityExtensions.Editor">
       <HintPath>Library\UnityAssemblies\Vuforia.UnityExtensions.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Vuforia.UnityExtensions">
       <HintPath>Library\UnityAssemblies\Vuforia.UnityExtensions.dll</HintPath>
     </Reference>
-=======
->>>>>>> 462ae08fe3dcd4fa9c703ffedb77e636a68d7ecb
     <Reference Include="UnityEditor.Graphs">
       <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
     </Reference>
@@ -339,25 +327,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <ProjectReference Include="VR_Hackthon_Proj.Plugins.csproj">
-      <Project>{18ED80AB-7B4E-39A3-F88E-172DAE6F352C}</Project>
-      <Name>VR_Hackthon_Proj.Plugins</Name>
-    </ProjectReference>
-=======
->>>>>>> 462ae08fe3dcd4fa9c703ffedb77e636a68d7ecb
     <ProjectReference Include="VR_Hackthon_Proj.csproj">
       <Project>{0E4BCD6E-2939-34F8-6B28-D9D854B48ACF}</Project>
       <Name>VR_Hackthon_Proj</Name>
     </ProjectReference>
-<<<<<<< HEAD
-    <ProjectReference Include="VR_Hackthon_Proj.Editor.Plugins.csproj">
-      <Project>{16E413CC-0521-8274-7B83-DB7A46ED0468}</Project>
-      <Name>VR_Hackthon_Proj.Editor.Plugins</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-=======
     <ProjectReference Include="VR_Hackthon_Proj.Plugins.csproj">
       <Project>{18ED80AB-7B4E-39A3-F88E-172DAE6F352C}</Project>
       <Name>VR_Hackthon_Proj.Plugins</Name>
@@ -365,7 +338,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
->>>>>>> 462ae08fe3dcd4fa9c703ffedb77e636a68d7ecb
     <Compile Include="Assets\OculusPlatform\Editor\GUIHelper.cs" />
     <Compile Include="Assets\OculusPlatform\Editor\OculusPlatformSettingsEditor.cs" />
     <Compile Include="Assets\OSPNative\editor\ONSPAudioSourceEditor.cs" />
@@ -419,11 +391,8 @@
     <None Include="Assets\OvrAvatar\THIRD_PARTY_NOTICES.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
-<<<<<<< HEAD
-=======
     <None Include="Assets\info_morgueroom.txt" />
     <None Include="Assets\kitchen props\Readme.txt" />
->>>>>>> 462ae08fe3dcd4fa9c703ffedb77e636a68d7ecb
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

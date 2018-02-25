@@ -1,17 +1,7 @@
 fileFormatVersion: 2
 guid: d870fcfa1434e94408b4ff98ff17de30
 folderAsset: yes
-timeCreated: 1444263910
-licenseType: Store
 PluginImporter:
-<<<<<<< HEAD
-  serializedVersion: 1
-  iconMap: {}
-  executionOrder: {}
-  isPreloaded: 0
-  platformData:
-    Any:
-=======
   externalObjects: {}
   serializedVersion: 2
   iconMap: {}
@@ -43,7 +33,6 @@ PluginImporter:
   - first:
       Standalone: OSXUniversal
     second:
->>>>>>> 462ae08fe3dcd4fa9c703ffedb77e636a68d7ecb
       enabled: 1
       settings: {}
   userData: 
