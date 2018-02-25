@@ -11,8 +11,7 @@ public class RaycastObject : MonoBehaviour {
 
     public virtual void OnRayCast(RaycastHit hitInfo)
     {   
-        Debug.LogFormat("Raycast stayed on {0}", gameObject.name);
-
+        //Debug.LogFormat("Raycast stayed on {0}", gameObject.name);
     }
 
     public virtual void OnRaycastExit()
@@ -54,7 +53,12 @@ public class RaycastObject : MonoBehaviour {
         if (messageOn && cg.alpha < 1)
             cg.alpha += Time.deltaTime * 1.5f;
         else if (!messageOn && cg.alpha > 0)
-            cg.alpha -= Time.deltaTime * 1.5f;
+        {
+            if (cg.alpha > 0.9)
+                cg.alpha -= Time.deltaTime * 0.075f;
+            else
+                cg.alpha -= Time.deltaTime * 1.5f;
+        }
     }
 
 
