@@ -327,13 +327,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="VR_Hackthon_Proj.Plugins.csproj">
-      <Project>{18ED80AB-7B4E-39A3-F88E-172DAE6F352C}</Project>
-      <Name>VR_Hackthon_Proj.Plugins</Name>
-    </ProjectReference>
     <ProjectReference Include="VR_Hackthon_Proj.csproj">
       <Project>{0E4BCD6E-2939-34F8-6B28-D9D854B48ACF}</Project>
       <Name>VR_Hackthon_Proj</Name>
+    </ProjectReference>
+    <ProjectReference Include="VR_Hackthon_Proj.Plugins.csproj">
+      <Project>{18ED80AB-7B4E-39A3-F88E-172DAE6F352C}</Project>
+      <Name>VR_Hackthon_Proj.Plugins</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

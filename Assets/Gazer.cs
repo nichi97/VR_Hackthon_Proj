@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using 
 
 public class Gazer : MonoBehaviour {
 
@@ -22,7 +21,7 @@ public class Gazer : MonoBehaviour {
         //when the gazed object is interactive raycast object
         if (!enabled && lastRaycastObject is InteractiveRaycastObject)
         {
-            if ()
+            //if ()
             lastRaycastObject.TurnOffMessage();
             return;
         }
