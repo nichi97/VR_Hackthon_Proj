@@ -11,7 +11,7 @@ public class RaycastObject : MonoBehaviour {
 
     public virtual void OnRayCast(RaycastHit hitInfo)
     {   
-        //Debug.LogFormat("Raycast stayed on {0}", gameObject.name);
+        Debug.LogFormat("Raycast stayed on {0}", gameObject.name);
     }
 
     public virtual void OnRaycastExit()

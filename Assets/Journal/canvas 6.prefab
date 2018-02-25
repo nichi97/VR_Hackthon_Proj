@@ -9,20 +9,20 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1906129183766614}
+  m_RootGameObject: {fileID: 1263438286684560}
   m_IsPrefabParent: 1
---- !u!1 &1345558474419668
+--- !u!1 &1047653682505690
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 224446961228296956}
-  - component: {fileID: 222181523640245526}
-  - component: {fileID: 114565486918209816}
-  - component: {fileID: 23853525625966428}
-  - component: {fileID: 102061711122686810}
+  - component: {fileID: 224763120449719926}
+  - component: {fileID: 222465584141801092}
+  - component: {fileID: 114388919318448258}
+  - component: {fileID: 23103362361564622}
+  - component: {fileID: 102399983758697158}
   m_Layer: 5
   m_Name: Jou 4
   m_TagString: Untagged
@@ -30,30 +30,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1906129183766614
+--- !u!1 &1263438286684560
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 224408840562896530}
-  - component: {fileID: 223758251433668968}
-  - component: {fileID: 114154166342782738}
-  - component: {fileID: 114687295958859694}
+  - component: {fileID: 224367333904448158}
+  - component: {fileID: 223894528138206178}
+  - component: {fileID: 114705481664791976}
+  - component: {fileID: 114878368768001028}
   m_Layer: 5
-  m_Name: Jou2
+  m_Name: canvas 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!23 &23853525625966428
+--- !u!23 &23103362361564622
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1345558474419668}
+  m_GameObject: {fileID: 1047653682505690}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -82,13 +82,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!102 &102061711122686810
+--- !u!102 &102399983758697158
 TextMesh:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1345558474419668}
+  m_GameObject: {fileID: 1047653682505690}
   m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 1
@@ -103,33 +103,12 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
---- !u!114 &114154166342782738
+--- !u!114 &114388919318448258
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1906129183766614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 1
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 4
---- !u!114 &114565486918209816
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1345558474419668}
+  m_GameObject: {fileID: 1047653682505690}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -156,17 +135,38 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Apr 23, 2017\r\n\r\nOkay... I couldn't keep shying away from him anymore.
-    He is the only one who shares this bizarre experience with me, and he is the only
-    one that I could trust. I don't know what is yet to come between us, but I guess
-    no other guy knows me so well as he does\u2026 I will tell him what I think about
-    him.\r\n\n"
---- !u!114 &114687295958859694
+  m_Text: "June  23, 2017\r\n\r\nI could not touch him, I could not look into his
+    eyes. I could not hug him. Whenever he is around, I couldn't be around. It should
+    not be like this at all. I want to touch him. I want to see him. I want to hold
+    his hand. I want to read a book while he is sitting just next to me\u2026 BUT
+    ALL I HAVE IS THOSE DAMN LETTERS!!! \r\n\n\n"
+--- !u!114 &114705481664791976
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1906129183766614}
+  m_GameObject: {fileID: 1263438286684560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 1
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 4
+--- !u!114 &114878368768001028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1263438286684560}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -177,18 +177,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!222 &222181523640245526
+--- !u!222 &222465584141801092
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1345558474419668}
---- !u!223 &223758251433668968
+  m_GameObject: {fileID: 1047653682505690}
+--- !u!223 &223894528138206178
 Canvas:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1906129183766614}
+  m_GameObject: {fileID: 1263438286684560}
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
@@ -203,17 +203,17 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!224 &224408840562896530
+--- !u!224 &224367333904448158
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1906129183766614}
+  m_GameObject: {fileID: 1263438286684560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
-  - {fileID: 224446961228296956}
+  - {fileID: 224763120449719926}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -222,17 +222,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 952, y: 608}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!224 &224446961228296956
+--- !u!224 &224763120449719926
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1345558474419668}
+  m_GameObject: {fileID: 1047653682505690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 224408840562896530}
+  m_Father: {fileID: 224367333904448158}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

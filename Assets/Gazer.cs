@@ -43,6 +43,7 @@ public class Gazer : MonoBehaviour {
             if (inputPw.CompareTo("662") == 0)
             {
                 locked = false;
+                ((KeypadObject)lastRaycastObject).setLocked(false);
             }
             else if (inputPw.Length > 2)
                 inputPw = "";
@@ -78,11 +79,12 @@ public class Gazer : MonoBehaviour {
             }
         }
         //Debug.LogFormat("checkpoint");
-        //Ray myRay = new Ray(this.transform.position, this.transform.forward);
+        Ray myRay = new Ray(this.transform.position, this.transform.forward);
         Debug.DrawRay(transform.position, transform.forward * 1000.0f);
         RaycastHit hitObject;
-        if (Physics.SphereCast(transform.position, 30f, transform.forward, out hitObject, Mathf.Infinity))
+        if (Physics.Raycast(myRay, out hitObject, Mathf.Infinity))
         {
+            //Debug.LogFormat("checkpoint");
             RaycastObject rayCastHitObject = hitObject.collider.GetComponent<RaycastObject>();
             if (rayCastHitObject != null)
             {
@@ -101,7 +103,7 @@ public class Gazer : MonoBehaviour {
                     hitTimeLength += Time.deltaTime;
 
                     //show internal mind
-                    if ( (!rayCastHitObject.haveSeenMsg && hitTimeLength >= 3)
+                    if ( (!rayCastHitObject.haveSeenMsg && hitTimeLength >= 2.5)
                             || (rayCastHitObject.haveSeenMsg && hitTimeLength >= 1) )
                     {
                         if (rayCastHitObject is InteractiveRaycastObject
@@ -117,6 +119,7 @@ public class Gazer : MonoBehaviour {
 
             else if (lastRaycastObject != null)
             {
+                Debug.LogFormat("checkpoint1");
                 lastRaycastObject.OnRaycastExit();
                 lastRaycastObject = null;
                 hitTimeLength = 0;
@@ -124,10 +127,12 @@ public class Gazer : MonoBehaviour {
         }
         else if (lastRaycastObject != null)
         {
+            Debug.LogFormat("checkpoint2");
             lastRaycastObject.OnRaycastExit();
             lastRaycastObject = null;
             hitTimeLength = 0;
         }
+        //Debug.LogFormat("{0}", hitObject);
 
     }
 
@@ -147,7 +152,7 @@ public class Gazer : MonoBehaviour {
         {
             //cursor
             cursorInstance.SetActive(true);//cursorInstance.GetComponent<Renderer>().enabled = true;
-            cursorInstance.transform.position = hitObject.point;
+            cursorInstance.transform.position = new Vector3(hitObject.point.x + 10f, hitObject.point.y, hitObject.point.z);
             cursorInstance.transform.rotation = hitObject.transform.rotation;//.FromToRotation(Vector3.up, hitObject.normal);
 
             NumberKey rayCastHitObject = hitObject.collider.GetComponent<NumberKey>();
