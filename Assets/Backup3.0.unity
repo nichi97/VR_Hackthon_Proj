@@ -9172,19 +9172,6 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 656f375b779461048b0cdde1b80ef0b0, type: 3}
   m_PrefabInternal: {fileID: 1024915755}
---- !u!114 &1651066831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1651066830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15e451cd9885f23419a1db7f930162bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messageCanvas: {fileID: 1959268430}
-  haveSeenMsg: 0
 --- !u!114 &1651066832
 MonoBehaviour:
   m_ObjectHideFlags: 0
