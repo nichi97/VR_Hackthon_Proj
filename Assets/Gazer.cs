@@ -18,11 +18,12 @@ public class Gazer : MonoBehaviour {
         //Ray myRay = new Ray(this.transform.position, this.transform.forward);
         //Debug.DrawRay(myRay.origin, myRay.direction * 1000.0f);
         RaycastHit hitObject;
-        if (Physics.SphereCast(transform.position, 10f, transform.forward, out hitObject, Mathf.Infinity))
+        if (Physics.SphereCast(transform.position, 1000f, transform.forward, out hitObject, Mathf.Infinity))
         {
             RaycastObject rayCastHitObject = hitObject.collider.GetComponent<RaycastObject>();
             if (rayCastHitObject != null)
             {
+            Debug.LogFormat("Checking");
                 if (rayCastHitObject != lastRaycastObject)
                 {
                     if (lastRaycastObject != null)
